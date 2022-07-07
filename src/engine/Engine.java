@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import utils.Utils;
 
-
 public class Engine {
 
 	private Person p;
@@ -205,25 +204,50 @@ public class Engine {
 		String s="";
 		if(consonanti_NOME.length()>3){
 			s=s+consonanti_NOME.charAt(0)+consonanti_NOME.charAt(2)+consonanti_NOME.charAt(3);
-			return s;
-		}
-		if(consonanti_NOME.length()==3){
+		} else if(consonanti_NOME.length()==3){
 			for(int i=0;i<3;i++)
 				s=s+consonanti_NOME.charAt(i);
-			return s;
-		}
-		if(consonanti_NOME.length()==2){
-			s=s+consonanti_NOME.charAt(0)+consonanti_NOME.charAt(1)+vocali_NOME.charAt(0);
-			return s;
-		}
-		if(consonanti_NOME.length()==1){
-			s=s+consonanti_NOME.charAt(0)+vocali_NOME.charAt(0)+vocali_NOME.charAt(1);
-			return s;
-		}
-		else{
-			for(int i=0;i<3;i++)
+		} else if(consonanti_NOME.length()==2){
+			s=s+consonanti_NOME.charAt(0)+consonanti_NOME.charAt(1);
+
+			if (vocali_NOME.length() > 0) {
+				s=s+vocali_NOME.charAt(0);
+			}
+		} else if(consonanti_NOME.length()==1){
+			s=s+consonanti_NOME.charAt(0);
+
+			if (vocali_NOME.length() == 1) {
+				s=s+vocali_NOME.charAt(0);
+			}
+
+			if (vocali_NOME.length() > 1) {
+				s=s+vocali_NOME.charAt(0)+vocali_NOME.charAt(1);
+			}
+
+		} else {
+			if (vocali_NOME.length() == 1) {
+				s=s+vocali_NOME.charAt(0);
+			}
+
+			if (vocali_NOME.length() == 2) {
+				for(int i=0;i<2;i++)
 				s=s+vocali_NOME.charAt(i);
+			}
+
+			if (vocali_NOME.length() == 3) {
+				for(int i=0;i<3;i++)
+				s=s+vocali_NOME.charAt(i);
+			}
+		}
+
+		if (s.length()==3) {
 			return s;
+		} else if (s.length()==2) {
+			return(s + "X");
+		} else if (s.length()==1) {
+			return(s + "XX");
+		} else {
+			return "XXX";
 		}
 	}
 	
@@ -232,20 +256,47 @@ public class Engine {
 		if(consonanti_COGNOME.length()>=3){
 			for(int i=0;i<3;i++)
 				s=s+consonanti_COGNOME.charAt(i);
-			return s;
-		}
-		if(consonanti_COGNOME.length()==2){
-			s=s+consonanti_COGNOME.charAt(0)+consonanti_COGNOME.charAt(1)+vocali_COGNOME.charAt(0);
-			return s;
-		}
-		if(consonanti_COGNOME.length()==1){
-			s=s+consonanti_COGNOME.charAt(0)+vocali_COGNOME.charAt(0)+vocali_COGNOME.charAt(1);
-			return s;
-		}
-		else{
-			for(int i=0;i<3;i++)
+		} else if(consonanti_COGNOME.length()==2){
+			s=s+consonanti_COGNOME.charAt(0)+consonanti_COGNOME.charAt(1);
+
+			if (vocali_COGNOME.length() > 0) {
+				s=s + vocali_COGNOME.charAt(0);
+			}
+		} else if(consonanti_COGNOME.length()==1){
+			s=s+consonanti_COGNOME.charAt(0);
+
+			if (vocali_COGNOME.length() == 1) {
+				s=s + vocali_COGNOME.charAt(0);
+			}
+
+			if (vocali_COGNOME.length() > 1) {
+				s=s + vocali_COGNOME.charAt(0)+vocali_COGNOME.charAt(1);
+			}
+		} else{
+			if (vocali_COGNOME.length() == 1) {
+				s=s+vocali_COGNOME.charAt(0);
+			}
+
+			if (vocali_COGNOME.length() == 2) {
+				for(int i=0;i<2;i++)
 				s=s+vocali_COGNOME.charAt(i);
+			}
+
+			if (vocali_COGNOME.length() == 3) {
+				for(int i=0;i<3;i++)
+				s=s+vocali_COGNOME.charAt(i);
+			}
+
+		}
+
+		if (s.length()==3) {
 			return s;
+		} else if (s.length()==2) {
+			return(s + "X");
+		} else if (s.length()==1) {
+			return(s + "XX");
+		} else {
+			return "XXX";
 		}
 	}
 
@@ -271,5 +322,4 @@ public class Engine {
 			return true;
 		return false;
 	}
-	
 }

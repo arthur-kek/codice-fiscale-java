@@ -10,6 +10,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.GregorianCalendar;
 import java.util.Map;
 
@@ -146,6 +147,7 @@ public class Wnd extends JFrame{
 	
 	@SuppressWarnings("unchecked")
 	private void cityNames() throws IOException {
+		
         for (Map.Entry<String, String> e : Utils.getCitiesCodes().entrySet()) {
         	jcb_c.addItem(e.getValue());
         }

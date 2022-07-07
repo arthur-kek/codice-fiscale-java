@@ -3,7 +3,7 @@ package utils;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import document.CitiesCodes;
+import cities_codes.CitiesCodes;
 
 public class Utils {
 

@@ -1,13 +1,10 @@
-package document;
+package cities_codes;
 
 import java.util.Map;
 import java.util.TreeMap;
 
 import utils.Utils;
 
-/**
- * Created by Matteo on 12/11/2015.
- */
 @SuppressWarnings("serial")
 public class CitiesCodes extends TreeMap<String, String> {
 
@@ -22,6 +19,7 @@ public class CitiesCodes extends TreeMap<String, String> {
     CitiesCodes_I ccI = new CitiesCodes_I();
     CitiesCodes_L ccL = new CitiesCodes_L();
     CitiesCodes_M ccM = new CitiesCodes_M();
+    CitiesCodes_Z ccZ = new CitiesCodes_Z();
 
     public CitiesCodes(){
         this.putAll(ccA);
@@ -35,12 +33,14 @@ public class CitiesCodes extends TreeMap<String, String> {
         this.putAll(ccI);
         this.putAll(ccL);
         this.putAll(ccM);
+        this.putAll(ccZ);
     }
 
     public String getKey(String s){
         String res = Utils.ERROR;
+        String cityName = s.toUpperCase();
         for (Map.Entry<String, String> e : this.entrySet()) {
-            if(s.equals(e.getValue()))
+            if(cityName.equals(e.getValue()))
                 res = e.getKey();
         }
         return res;
