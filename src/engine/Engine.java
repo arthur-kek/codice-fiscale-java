@@ -234,7 +234,7 @@ public class Engine {
 				s=s+vocali_NOME.charAt(i);
 			}
 
-			if (vocali_NOME.length() == 3) {
+			if (vocali_NOME.length() > 2) {
 				for(int i=0;i<3;i++)
 				s=s+vocali_NOME.charAt(i);
 			}
@@ -282,7 +282,7 @@ public class Engine {
 				s=s+vocali_COGNOME.charAt(i);
 			}
 
-			if (vocali_COGNOME.length() == 3) {
+			if (vocali_COGNOME.length() > 2) {
 				for(int i=0;i<3;i++)
 				s=s+vocali_COGNOME.charAt(i);
 			}
